@@ -19,6 +19,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.br.localizacoes.databinding.ActivityMapsBinding
 import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.common.api.internal.GoogleServices
+import com.google.android.gms.common.api.internal.GoogleServices.getGoogleAppId
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.model.Marker
 
@@ -141,10 +143,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             val currentLocation = LatLng(location.latitude, location.longitude)
             placeMarkerOnMap(currentLocation)
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 42f))
-            val endereco = lasLocation
-            Toast.makeText(this, "Endereco: "+endereco, Toast.LENGTH_SHORT).show()
+            val endereco:String? = null
+            // TODO: aqui pegar o endereco do usuario e setar na variável endereço
         }
-
         }
     }
 
